@@ -104,3 +104,5 @@ src/server/bank/testcases/*
 # Student records
 *.csv
 
+# Sandbox-exe
+sandbox-exe
