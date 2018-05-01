@@ -80,11 +80,8 @@ WSGI_APPLICATION = 'judge.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cruxjudgedb',
-        'USER': 'cruxjudge',
-        'PASSWORD': 'pass@cruxjudge',
-        'HOST': 'localhost'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3',
     }
 }
 
