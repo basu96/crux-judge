@@ -5,5 +5,7 @@ RUN ["apt", "update"]
 RUN ["apt", "install", "-y", "apt-utils"]
 RUN ["apt", "install", "-y", "git", "sudo", "libseccomp2", "python3", "python3-pip", "nginx", "nano"]
 RUN ["pip3", "install", "Django==1.11.2", "uwsgi", "django-ipware", "psycopg2"]
+COPY cruxjudge_nginx.conf /etc/nginx/sites-available/
+RUN ["ln", "-s", "/etc/nginx/sites-available/cruxjudge_nginx.conf", "/etc/nginx/sites-enabled/cruxjudge_nginx.conf"]
 
-EXPOSE 8000 5432
+EXPOSE 8000
