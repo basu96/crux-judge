@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y \
     git \
     sudo \
     libseccomp2 \
+    libseccomp-dev \
     python3 \
     python3-pip \
     nginx \
