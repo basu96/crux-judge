@@ -24,6 +24,7 @@ WORKDIR /root/home/cruxjudge/src/server
 
 CMD python3 manage.py collectstatic \
     && python3 manage.py migrate \
+    && gcc contest/sandbox/*.c -lm -pthread -lseccomp -o contest/sandbox/sandbox-exe \
     && service nginx restart \
     && uwsgi --ini /root/home/cruxjudge/cruxjudge_uwsgi.ini
 
