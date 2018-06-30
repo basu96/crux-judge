@@ -10,9 +10,10 @@ RUN ["ln", "-s", "/etc/nginx/sites-available/cruxjudge_nginx.conf", "/etc/nginx/
 RUN ["chown", "-R", "www-data", "/root"]
 
 WORKDIR /root/home/cruxjudge/src/server
-CMD ["python3", "manage.py", "collectstatic"]
-CMD ["python3", "manage.py", "migrate"]
-CMD ["service", "nginx", "restart"]
-CMD ["uwsgi", "--ini", "/root/home/cruxjudge/cruxjudge_uwsgi.ini"]
+
+CMD python3 manage.py collectstatic \
+    && python3 manage.py migrate \
+    && service nginx restart \
+    && uwsgi --ini /root/home/cruxjudge/cruxjudge_uwsgi.ini
 
 EXPOSE 8000
